@@ -32,4 +32,14 @@ selected_data <- selected_data %>%
 head(selected_data)
 
 #6: 
+table(selected_data$sum)
+
+#7: Write all lines of code under one singel operation
+final_data <- read_excel("data-nasdaq-returns.xls") %>%
+  select(Date, NASDAQ, AAPL) %>%
+  mutate(sign_NASDAQ = sign(NASDAQ),
+         sign_AAPL = sign(AAPL),
+         sum = (sign_NASDAQ + sign_AAPL) / 2)
+head(final_data)
+
 
