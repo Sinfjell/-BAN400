@@ -29,5 +29,23 @@ p3 <- p2 + labs(y = "Per capita mismanaged plastic waste (kg/day, log)",
 p3
 
 # Step 4: Add text labels for the countries and a smoother
-p4 <- p3 + geom_text(aes(label = country), size = 2)
+# Filter out rows with missing or infinite values in the relevant variables
+plastic_filtered <- plastic |> 
+  filter(!is.infinite(gdp), !is.na(gdp),
+         !is.infinite(per_capita_mismanaged), !is.na(per_capita_mismanaged),
+         !is.na(population), !is.na(region))
+
+# Create the plot using the filtered data
+p4 <- plastic_filtered %>%
+  ggplot(aes(x = log(gdp), y = log(per_capita_mismanaged), 
+             size = population, color = region)) +
+  geom_point() +
+  labs(y = "Per capita mismanaged plastic waste (kg/day, log)", 
+       x = "Per capita GDP (log)") +
+  theme_classic() +
+  scale_color_manual(values = my_colors) +
+  geom_text(aes(label = country), size = 2) +
+  geom_smooth(method = "gam", color = "black", se = TRUE) # Add a linear smoother with a confidence interval
 p4
+
+
