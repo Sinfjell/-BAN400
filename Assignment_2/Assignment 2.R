@@ -1,3 +1,6 @@
+# This is assignment 2, part 2, survey data. 
+# URL to assignment: https://hotneim.github.io/ban400/assignment-02.html
+# Fetching libraries
 library(foreign)
 library(dplyr)
 
