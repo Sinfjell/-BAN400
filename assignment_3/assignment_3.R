@@ -1,3 +1,6 @@
+# task url: https://hotneim.github.io/ban400/assignment-03.html
+# notion: https://www.notion.so/fjellestad/Learning-notes-assignment-3-4ef5d2988f164e4c9e1371164d3cca5b?pvs=4
+
 library(readr)
 library(dplyr)
 library(ggplot2)
