@@ -9,9 +9,6 @@ library(ggplot2)
 
 # PROBLEM 1
 # Task 1
-
-
-
 sim_norm <- function(N, mu = 0, sigma = 1) {
   observations <- rnorm(N, mean = mu, sd = sigma)
   sample_mean <- mean(observations)
